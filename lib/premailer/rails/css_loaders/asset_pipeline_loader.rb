@@ -20,7 +20,7 @@ class Premailer
           prefix = [::Rails.configuration.relative_url_root, ::Rails.configuration.assets.prefix, "/"].reject(&:blank?).join
           URI(url).path
             .sub(prefix, '')
-            .sub(/-\h{32}\.css$/, '.css')
+            .sub(/-(\h{32}|\h{64})\.css$/, '.css')
         end
       end
     end
